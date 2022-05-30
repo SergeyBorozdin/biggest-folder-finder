@@ -31,4 +31,9 @@ public class Node {
     public void setSize(long size) {
         this.size = size;
     }
+
+    public String toString(){
+        String size = SizeCalculator.getHumanReadableSize(getSize());
+        return size;
+    }
 }
