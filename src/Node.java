@@ -34,6 +34,11 @@ public class Node {
 
     public String toString(){
         String size = SizeCalculator.getHumanReadableSize(getSize());
-        return size;
+        StringBuilder builder = new StringBuilder();
+        builder.append(folder.getName() + " - " + size + "\n");
+        for (Node child : children){
+            builder.append("\t" + child.toString());
+        }
+        return builder.toString();
     }
 }
