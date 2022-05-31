@@ -16,7 +16,9 @@ public class FolderSizeCalculator extends RecursiveTask<Long>
 
         File folder = node.getFolder();
         if (folder.isFile()){
-            return folder.length();
+            long length = folder.length();
+            node.setSize(length);
+            return length;
         }
 
         long sum = 0; // сразу задаем 0
