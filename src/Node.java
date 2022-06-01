@@ -39,7 +39,7 @@ public class Node {
         StringBuilder builder = new StringBuilder();
         builder.append(folder.getName() + " - " + size + "\n");
         for (Node child : children){
-            builder.append(level > 0 ? "\t" + child.toString() : child.toString());
+            builder.append("  ".repeat(level + 1) + child.toString());
         }
         return builder.toString();
     }
