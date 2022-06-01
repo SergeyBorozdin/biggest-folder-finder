@@ -6,6 +6,7 @@ public class Node {
     private File folder;
     private ArrayList<Node> children;
     private long size;
+    private int level;
 
     public Node(File folder){
         this.folder = folder;
@@ -17,6 +18,7 @@ public class Node {
     }
 
     public void addChild(Node node){
+        node.setLevel(level + 1);
         children.add(node);
     }
 
@@ -37,8 +39,12 @@ public class Node {
         StringBuilder builder = new StringBuilder();
         builder.append(folder.getName() + " - " + size + "\n");
         for (Node child : children){
-            builder.append("\t" + child.toString());
+            builder.append(level > 0 ? "\t" + child.toString() : child.toString());
         }
         return builder.toString();
+    }
+
+    private void setLevel(int level){
+        this.level = level;
     }
 }

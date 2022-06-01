@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String folderPart = "C:\\Users\\60034452\\Desktop";
+        String folderPart = "C:\\Users\\60034452\\Desktop\\Data";
         File file = new File(folderPart);
         Node root = new Node(file); // созадем обоект ноды
 
