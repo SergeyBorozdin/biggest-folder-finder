@@ -15,6 +15,10 @@ public class Node {
         children = new ArrayList<>();
     }
 
+    public long getLimit(){
+        return sizeLimit;
+    }
+
     public File getFolder(){
         return folder;
     }
@@ -41,11 +45,12 @@ public class Node {
         StringBuilder builder = new StringBuilder();
 
         builder.append(folder.getName() + " - " + size + "\n");
-        if (getSize() > sizeLimit)
-        {
-            for (Node child : children){
-                builder.append("  ".repeat(level + 1) + child.toString());
+
+        for (Node child : children){
+            if (child.getSize() < sizeLimit){
+                continue;
             }
+                builder.append("  ".repeat(level + 1) + child.toString());
         }
         return builder.toString();
     }

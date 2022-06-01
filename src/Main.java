@@ -1,5 +1,4 @@
 import java.io.File;
-import java.util.HashMap;
 import java.util.concurrent.ForkJoinPool;
 
 public class Main {
@@ -8,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String folderPart = "C:\\Users\\60034452\\Desktop\\Data";
+        String folderPart = "C:\\Users\\60034452\\Desktop";
 
         File file = new File(folderPart);
         Node root = new Node(file, SIZE_LIMIT); // созадем обоект ноды
