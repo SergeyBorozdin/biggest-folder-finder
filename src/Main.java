@@ -4,11 +4,14 @@ import java.util.concurrent.ForkJoinPool;
 
 public class Main {
 
+    public static final long SIZE_LIMIT = 50 * 1024 * 1024;
+
     public static void main(String[] args) {
 
         String folderPart = "C:\\Users\\60034452\\Desktop\\Data";
+
         File file = new File(folderPart);
-        Node root = new Node(file); // созадем обоект ноды
+        Node root = new Node(file, SIZE_LIMIT); // созадем обоект ноды
 
         long start = System.currentTimeMillis();
 

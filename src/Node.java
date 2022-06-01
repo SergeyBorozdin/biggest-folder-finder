@@ -7,9 +7,11 @@ public class Node {
     private ArrayList<Node> children;
     private long size;
     private int level;
+    private long sizeLimit;
 
-    public Node(File folder){
+    public Node(File folder, long sizeLimit){
         this.folder = folder;
+        this.sizeLimit = sizeLimit;
         children = new ArrayList<>();
     }
 
@@ -37,9 +39,13 @@ public class Node {
     public String toString(){
         String size = SizeCalculator.getHumanReadableSize(getSize());
         StringBuilder builder = new StringBuilder();
+
         builder.append(folder.getName() + " - " + size + "\n");
-        for (Node child : children){
-            builder.append("  ".repeat(level + 1) + child.toString());
+        if (getSize() > sizeLimit)
+        {
+            for (Node child : children){
+                builder.append("  ".repeat(level + 1) + child.toString());
+            }
         }
         return builder.toString();
     }
