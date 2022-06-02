@@ -7,8 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String folderPart = "C:\\Users\\60034452\\Desktop";
+        ParametersBag bag = new ParametersBag(args);
 
+        String folderPart = bag.getPath();
         File file = new File(folderPart);
         Node root = new Node(file, SIZE_LIMIT); // созадем обоект ноды
 
